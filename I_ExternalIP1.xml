@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<implementation>
+	<settings>
+	</settings>
+	<functions>
+		function initialiseExternalIPPlugin(lul_device)
+			luup.log("ExternalIP: Plugin STARTING-UP!")
+			ExternalIP = require("L_ExternalIP1")
+			return ExternalIP.ExternalIPStartUp(lul_device)
+			end
+	</functions>
+	<startup>initialiseExternalIPPlugin</startup>
+	<actionList>
+		<action>
+			<serviceId>urn:nodecentral-net:serviceId:EnergyCostMeter1</serviceId>
+			<name>refreshExternalIP</name>
+			<job>
+                ExternalIP.log("Executed refreshExternalIP action...")
+				return ExternalIP.refreshExternalIP(lul_device)
+			</job>
+		</action>
+	</actionList>
+</implementation>
