@@ -1,6 +1,6 @@
 module("L_ExternalIP1", package.seeall)
 
-local PV = "0.1" -- plugin version number
+local PV = "0.2" -- plugin version number
 local COM_SID = "urn:nodecentral-net:serviceId:ExternalIP1"
 
 function log(msg) 
@@ -30,7 +30,7 @@ function refreshExternalIP(lul_device)
 		log("External IP Address has NOT changed")
 	end
 	
-	luup.call_delay ("getexternalip", 86400) -- Check if the IP address has changed ever 24hours
+	luup.call_delay ("refreshExternalIP", 86400) -- Check if the IP address has changed ever 24hours
 
 end
 
@@ -55,6 +55,7 @@ local function populateFixedVariables(lul_device)
 	
 	local LastCheckedHR = luup.variable_get(COM_SID, "Last Checked HR", lul_device)
 		if (LastCheckedHR == nil) then luup.variable_set(COM_SID, "Last Checked HR", "Date" , lul_device) end
+	refreshExternalIP(lul_device)
 end
 
 function ExternalIPStartUp(lul_device)
