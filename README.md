@@ -27,7 +27,7 @@ Still to be added..
 
 This installation assumes you are running the latest version of Vera software.
 
-1. Upload the two icon .png files to the appropriate storage location on your controller. For Vera that's `/www/cmh/skins/default/icons`
+1. Upload the icon web.png file to the appropriate storage location on your controller. For Vera that's `/www/cmh/skins/default/icons`
 3. Upload the .xml and .json file in the repository to the appropriate storage location on your controller. For Vera that's via Apps/Develop Apps/Luup files/
 4. Create the decice instance via the appropriate route. For Vera that's Apps/Develop Apps/Create Device/ and putting "D_ExternalIP1.xml" into the Upnp Device Filename box. 
 5. Reload luup to establish the device and then reload luup again (just to be sure) and you should be good to go.
