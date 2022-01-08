@@ -1,6 +1,6 @@
 module("L_ExternalIP1", package.seeall)
 
-local PV = "0.3" -- plugin version number
+local PV = "0.4" -- plugin version number
 local COM_SID = "urn:nodecentral-net:serviceId:ExternalIP1"
 
 function log(msg) 
@@ -69,7 +69,7 @@ local function populateFixedVariables(lul_device)
 	local PollPeriod = luup.variable_get(COM_SID, "Poll Period", lul_device)
 		if (PollPeriod == nil) then luup.variable_set(COM_SID, "Poll Period", 86400 , lul_device) end
 	
-	luup.variable_set(COM_SID, "PluginStatus", "Plugin variables are set up 3/3"
+	luup.variable_set(COM_SID, "PluginStatus", "Plugin variables are set up 3/3")
 	
 		refreshExternalIP(lul_device)
 		
