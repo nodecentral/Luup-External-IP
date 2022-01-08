@@ -5,9 +5,10 @@
 	<functions>
 		function initialiseExternalIPPlugin(lul_device)
 			luup.log("ExternalIP: Plugin STARTING-UP!")
-			ExternalIP = require("L_ExternalIP1")
+			ExternalIP = require "L_ExternalIP1"
+			NC_RefreshMyExtIP = ExternalIP.refreshExternalIP
 			return ExternalIP.ExternalIPStartUp(lul_device)
-			end
+		end
 	</functions>
 	<startup>initialiseExternalIPPlugin</startup>
 	<actionList>
